@@ -1,25 +1,55 @@
 import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
 
-const Home = () => {
-    if (process.env.NODE_ENV === "development")
-        return (
-            <Typography variant="h6">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Tempus quam pellentesque nec nam aliquam sem. Nibh cras pulvinar mattis nunc sed
-                blandit libero volutpat. Faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget. Euismod in
-                pellentesque massa placerat duis ultricies lacus sed turpis. Sed augue lacus viverra vitae congue eu
-                consequat. Facilisis magna etiam tempor orci eu lobortis elementum. Id consectetur purus ut faucibus
-                pulvinar. Est sit amet facilisis magna. Nunc pulvinar sapien et ligula ullamcorper malesuada. Dolor
-                morbi
-                non arcu risus quis varius quam quisque id. Eget nunc lobortis mattis aliquam faucibus purus in massa
-                tempor. Ultrices dui sapien eget mi proin. At volutpat diam ut venenatis tellus in metus vulputate eu.
-                Et
-                malesuada fames ac turpis egestas sed tempus urna et. Egestas egestas fringilla phasellus faucibus
-                scelerisque eleifend donec pretium.
-            </Typography>
-        );
+import PropTypes from "prop-types";
+import { Bot } from "../vite-env";
 
-    return <></>;
+import "../assets/less/bot.less";
+
+const Home = ({ bot }: { bot: Bot }) => {
+    return (
+        <Container maxWidth="xl">
+            <Container maxWidth="sm" className="bot-card">
+                <Grid
+                    container
+                    direction="column"
+                    justifyContent="center"
+                    alignItems="center"
+                    spacing={2}
+                >
+                    <Grid item xs={12}>
+                        <img src={bot.avatarURL} alt={bot.username} />
+                    </Grid>
+                    <Grid
+                        item
+                        xs={12}
+                    >
+                        <Typography
+                            variant="h4"
+                        >
+                            {bot.username}
+                        </Typography>
+                    </Grid>
+                    <Grid
+                        item
+                        xs={12}
+                        className="bot-description"
+                    >
+                        <Typography
+                            variant="h6"
+                        >
+                            {bot.description}
+                        </Typography>
+                    </Grid>
+                </Grid>
+            </Container>
+        </Container>
+    );
+};
+
+Home.propTypes = {
+    bot: PropTypes.object.isRequired
 };
 
 export default Home;
