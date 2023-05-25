@@ -7,37 +7,10 @@ import PropTypes from "prop-types";
 import ProfileButton from "./user/ProfileButton";
 
 import LoginIcon from "@mui/icons-material/Login";
-import SpokeIcon from "@mui/icons-material/Spoke";
-
 
 import { Bot } from "../vite-env";
-import {
-    Box, Checkbox,
-    Dialog,
-    DialogActions,
-    DialogContent,
-    DialogContentText,
-    DialogTitle, FormControlLabel,
-    Grid, Paper,
-    PaperProps
-} from "@mui/material";
-import { useState } from "react";
 
-import Draggable from "react-draggable";
-
-const inviteUrl =
-    "https://discord.com/oauth2/authorize?client_id=969414951292788766&permissions=1634569944311&scope=bot";
-
-const PaperComponent = (props: PaperProps) => {
-    return (
-        <Draggable
-            handle="#draggable-dialog-title"
-            cancel={"[class*=\"MuiDialogContent-root\"]"}
-        >
-            <Paper {...props} />
-        </Draggable>
-    );
-};
+import Box from "@mui/material/Box";
 
 const authUrl = process.env.NODE_ENV === "production"
     ? "https://discord.com/api/oauth2/authorize?client_id=969414951292788766&redirect_uri=https%3A%2F%2Fkuramisa.com%2Flogin&response_type=code&scope=guilds%20identify"
