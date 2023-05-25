@@ -23,7 +23,7 @@ const CommandList = () => {
                     align="center"
                     sx={{ fontSize: "0.8rem" }}
                 >
-                    {categories.length} Categories - {commands.length} Commands
+                    {categories?.length} Categories - {commands?.length} Commands
                 </Typography>
                 <Typography
                     variant="h5"
