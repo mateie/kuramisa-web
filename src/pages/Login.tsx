@@ -12,7 +12,7 @@ const Login = () => {
     const code = window.location.search.split("=")[1];
 
     const { data, error } = useQuery(LoginUser, {
-        variables: { code: Buffer.from(code).toString("base64") },
+        variables: { code: Buffer.from(code).toString("base64") }
     });
 
     if (auth) return <Navigate to="/" replace={true} />;

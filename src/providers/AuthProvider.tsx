@@ -8,7 +8,9 @@ import { login, logout } from "../reducers/auth";
 const AuthContext = createContext({
     auth: null as any,
     login: (userData: any) => userData,
-    logout: () => {},
+    logout: () => {
+        return;
+    }
 });
 
 const AuthProvider = (props: any) => {
@@ -19,7 +21,7 @@ const AuthProvider = (props: any) => {
     const [authUser] = useMutation(AuthUser, {
         update: (_, { data: { authUser: authData } }) => {
             dispatch(login(authData));
-        },
+        }
     });
 
     const loginUser = (token: string) => {

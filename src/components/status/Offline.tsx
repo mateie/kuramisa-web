@@ -9,12 +9,12 @@ const Offline = () => {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                height: "90vh",
+                height: "90vh"
             }}
         >
             <img
                 alt=""
-                src="./logo.png"
+                src="/logo.png"
                 style={{ width: "64px", height: "auto" }}
             />
             <Typography variant="h6">Bot is offline</Typography>

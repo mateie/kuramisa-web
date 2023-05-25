@@ -11,15 +11,37 @@ import SpokeIcon from "@mui/icons-material/Spoke";
 
 
 import { Bot } from "../vite-env";
-import { Box, Grid } from "@mui/material";
+import {
+    Box, Checkbox,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogContentText,
+    DialogTitle, FormControlLabel,
+    Grid, Paper,
+    PaperProps
+} from "@mui/material";
+import { useState } from "react";
 
-const authUrl =
-    process.env.NODE_ENV === "production"
-        ? "https://discord.com/api/oauth2/authorize?client_id=969414951292788766&redirect_uri=https%3A%2F%2Fkuramisa.com%2Flogin&response_type=code&scope=guilds%20identify"
-        : "https://discord.com/api/oauth2/authorize?client_id=969414951292788766&redirect_uri=http%3A%2F%2Flocalhost%3A5173%2Flogin&response_type=code&scope=guilds%20identify";
+import Draggable from "react-draggable";
 
 const inviteUrl =
     "https://discord.com/oauth2/authorize?client_id=969414951292788766&permissions=1634569944311&scope=bot";
+
+const PaperComponent = (props: PaperProps) => {
+    return (
+        <Draggable
+            handle="#draggable-dialog-title"
+            cancel={"[class*=\"MuiDialogContent-root\"]"}
+        >
+            <Paper {...props} />
+        </Draggable>
+    );
+};
+
+const authUrl = process.env.NODE_ENV === "production"
+    ? "https://discord.com/api/oauth2/authorize?client_id=969414951292788766&redirect_uri=https%3A%2F%2Fkuramisa.com%2Flogin&response_type=code&scope=guilds%20identify"
+    : "https://discord.com/api/oauth2/authorize?client_id=969414951292788766&redirect_uri=http%3A%2F%2Flocalhost%3A5173%2Flogin&response_type=code&scope=guilds%20identify";
 
 const Navigation = ({ bot, auth }: { bot: Bot; auth: any }) => {
     const navigate = useNavigate();
@@ -52,32 +74,16 @@ const Navigation = ({ bot, auth }: { bot: Bot; auth: any }) => {
                 {auth ? (
                     <ProfileButton auth={auth} />
                 ) : (
-                    <Grid container spacing={1}>
-                        <Grid item>
-                            <Button
-                                color="warning"
-                                variant="outlined"
-                                onClick={() => window.open(inviteUrl, "_blank")}
-                                startIcon={<SpokeIcon />}
-                            >
-                                <Typography className="capitalize" variant="body1">
-                                    Invite
-                                </Typography>
-                            </Button>
-                        </Grid>
-                        <Grid item>
-                            <Button
-                                color="success"
-                                variant="outlined"
-                                onClick={() => window.open(authUrl, "_self")}
-                                endIcon={<LoginIcon />}
-                            >
-                                <Typography className="capitalize" variant="body1">
-                                    Login
-                                </Typography>
-                            </Button>
-                        </Grid>
-                    </Grid>
+                    <Button
+                        color="success"
+                        variant="outlined"
+                        onClick={() => window.open(authUrl, "_self")}
+                        endIcon={<LoginIcon />}
+                    >
+                        <Typography className="capitalize" variant="body1">
+                            Login
+                        </Typography>
+                    </Button>
                 )}
             </Box>
         </AppBar>

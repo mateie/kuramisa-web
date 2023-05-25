@@ -5,7 +5,11 @@ import InfiniteScroll from "react-infinite-scroller";
 import Avatar from "@mui/material/Avatar";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
-import { Box, Grid } from "@mui/material";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+
+import truncate from "lodash/truncate";
 
 const UserGuildScroll = ({ parent }: { parent: React.MutableRefObject<any> }) => {
     const navigate = useNavigate();
@@ -52,19 +56,29 @@ const UserGuildScroll = ({ parent }: { parent: React.MutableRefObject<any> }) =>
     >
         <Grid container spacing={2}>
             {guilds.data.map((guild: any, id: any) => (
-                <Grid item className="guild" key={id}>
-                    <Box className="guild-icon">
+                <Grid
+                    item
+                    onClick={() => navigate(`/guild/${guild.id}`)}
+                    className="flex justify-center items-center p-2 guild"
+                    key={id}
+                >
+                    <Box>
                         {guild.iconURL ? (
                             <Avatar src={guild.iconURL} />
                         ) : (
-                            <Avatar>{guild.name[0]}</Avatar>
+                            <Avatar
+                                sx={{ color: "#fff" }}
+                            >
+                                <Typography variant="body1">
+                                    {guild.nameAcronym ? guild.nameAcronym : guild.name[0]}
+                                </Typography>
+                            </Avatar>
                         )}
-
                     </Box>
-                    <Box className="justify-center">
-                        <h6 className="guild-name" onClick={() => navigate(`/guild/${guild.id}`)}>{guild.name}</h6>
-                        <p className="guild-members">{guild.memberCount ? guild.memberCount : "?"} Members</p>
-                    </Box>
+                    <div className="guild-info">
+                        <h6 className="guild-name">{truncate(guild.name, { length: 22 })}</h6>
+                        <p className="guild-memebers">{guild.memberCount ? guild.memberCount : "Unknown #"} Members</p>
+                    </div>
                 </Grid>
             ))}
         </Grid>

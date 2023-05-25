@@ -85,18 +85,18 @@ const darkTheme = createTheme({
                     },
                     "&::-webkit-scrollbar-thumb, & *::-webkit-scrollbar-thumb": {
                         borderRadius: 8,
-                        backgroundColor: "#800080",
+                        backgroundColor: "#ff4c00",
                         minHeight: 24,
                         border: "4px solid #2b2b2b"
                     },
                     "&::-webkit-scrollbar-thumb:focus, & *::-webkit-scrollbar-thumb:focus": {
-                        backgroundColor: "#BF40BF"
+                        backgroundColor: "#ff4c00"
                     },
                     "&::-webkit-scrollbar-thumb:active, & *::-webkit-scrollbar-thumb:active": {
-                        backgroundColor: "#BF40BF"
+                        backgroundColor: "#ff4c00"
                     },
                     "&::-webkit-scrollbar-thumb:hover, & *::-webkit-scrollbar-thumb:hover": {
-                        backgroundColor: "#BF40BF"
+                        backgroundColor: "#ff4c00"
                     },
                     "&::-webkit-scrollbar-corner, & *::-webkit-scrollbar-corner": {
                         backgroundColor: "#2b2b2b"

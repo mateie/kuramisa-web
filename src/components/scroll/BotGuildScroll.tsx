@@ -6,11 +6,14 @@ import InfiniteScroll from "react-infinite-scroller";
 
 import { FetchGuilds } from "../../gql/queries/guilds";
 import PropTypes from "prop-types";
-import { Box, Divider, Grid } from "@mui/material";
-import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
+import { MutableRefObject } from "react";
 
-const BotGuildScroll = ({ parent }: { parent: React.MutableRefObject<any> }) => {
+import truncate from "lodash/truncate";
+
+const BotGuildScroll = ({ parent }: { parent: MutableRefObject<any> }) => {
     const navigate = useNavigate();
 
     const { data: { guilds } = {}, fetchMore, loading: initialLoading } = useQuery(FetchGuilds, {
@@ -49,7 +52,12 @@ const BotGuildScroll = ({ parent }: { parent: React.MutableRefObject<any> }) => 
     >
         <Grid container spacing={2}>
             {guilds.data.map((guild: any, id: any) => (
-                <Grid item className="flex justify-center items-center p-2" key={id}>
+                <Grid
+                    item
+                    onClick={() => navigate(`/guild/${guild.id}`)}
+                    className="flex justify-center items-center p-2 guild"
+                    key={id}
+                >
                     <Box>
                         {guild.iconURL ? (
                             <Avatar src={guild.iconURL} />
@@ -65,7 +73,7 @@ const BotGuildScroll = ({ parent }: { parent: React.MutableRefObject<any> }) => 
                         )}
                     </Box>
                     <div className="guild-info">
-                        <h6 className="guild-name" onClick={() => navigate(`/guild/${guild.id}`)}>{guild.name}</h6>
+                        <h6 className="guild-name">{truncate(guild.name, { length: 22 })}</h6>
                         <p className="guild-members">{guild.memberCount} Members</p>
                     </div>
                 </Grid>

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { useQuery } from "@apollo/client";
 import { Route, Routes } from "react-router-dom";
 
@@ -17,19 +17,13 @@ import Logout from "./pages/Logout";
 import { AuthContext } from "./providers/AuthProvider";
 import Sidebar from "./components/Sidebar";
 import Home from "./pages/Home";
-import { Box, Grid } from "@mui/material";
+import Grid from "@mui/material/Grid";
+import Guild from "./pages/Guild";
 
 const { VITE_UNDER_DEV } = import.meta.env;
 
 const App = () => {
-    const [windowHeight, setWindowHeight] = useState(window.innerHeight);
     const { auth } = useContext(AuthContext);
-
-    useEffect(() => {
-        const handleResize = () => setWindowHeight(window.innerHeight);
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
 
     const {
         loading,
@@ -57,6 +51,9 @@ const App = () => {
                             <Route path="/" element={<Home />} />
                             <Route path="/login" element={<Login />} />
                             <Route path="/logout" element={<Logout />} />
+                            <Route path="/server">
+                                <Route path=":guildId" element={<Guild />} />
+                            </Route>
                         </Routes>
                     </Container>
                 </Grid>

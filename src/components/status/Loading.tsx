@@ -9,12 +9,12 @@ const Loading = () => {
                 justifyContent: "center",
                 alignItems: "center",
                 flexDirection: "column",
-                height: "90vh",
+                height: "90vh"
             }}
         >
             <img
                 alt=""
-                src="./logo.png"
+                src="/logo.png"
                 style={{ width: "64px", height: "auto", position: "absolute" }}
             />
             <CircularProgress size={90} color="warning" />

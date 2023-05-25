@@ -1,22 +1,19 @@
-import { useEffect, useRef, useState } from "react";
-import { Box, Divider, Grid } from "@mui/material";
+import { useRef, useState } from "react";
+import { Box, Divider } from "@mui/material";
 import PropTypes from "prop-types";
 import Button from "@mui/material/Button";
 import UserGuildScroll from "./scroll/UserGuildScroll";
 import BotGuildScroll from "./scroll/BotGuildScroll";
 import Container from "@mui/material/Container";
 
+import "../assets/less/sidebar.less";
+
 const Sidebar = ({ auth }: { auth: any }) => {
     const [userServers, setUserServers] = useState(false);
     const scrollParent = useRef<any>(null);
 
     return (
-        <Box className="border-r-4 flex flex-col justify-between items-center"
-            sx={{
-                backgroundColor: "rgba(255, 255, 255, 0.09)",
-                width: 240,
-                borderColor: "#3c1f41"
-            }}>
+        <Box className="flex flex-col justify-between items-center h-full w-64 sidebar">
             {auth && (
                 userServers ? (
                     <Button
@@ -40,7 +37,7 @@ const Sidebar = ({ auth }: { auth: any }) => {
             <Container
                 maxWidth="sm"
                 ref={scrollParent}
-                sx={{ height: 831 }}
+                sx={{ height: auth ? "calc(100vh - 137px)" : "calc(100vh - 85px)" }}
                 className="overflow-y-auto overflow-x-hidden"
             >
                 {userServers && auth ? (
@@ -54,7 +51,7 @@ const Sidebar = ({ auth }: { auth: any }) => {
 };
 
 Sidebar.propTypes = {
-    auth: PropTypes.object.isRequired
+    auth: PropTypes.object
 };
 
 export default Sidebar;
