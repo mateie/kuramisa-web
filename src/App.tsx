@@ -35,7 +35,7 @@ const App = () => {
 
     if (loading) return <BotLoading />;
     if (botError) return <BotOffline />;
-    
+
     return (
         <>
             <Container disableGutters={true} maxWidth={false}>
@@ -47,7 +47,7 @@ const App = () => {
                     <Sidebar auth={auth} />
                     <Container maxWidth="xl" sx={{ padding: "40px" }}>
                         <Routes>
-                            <Route path="/" element={<Home />} />
+                            <Route path="/" element={<Home bot={bot} />} />
                             <Route path="/login" element={<Login />} />
                             <Route path="/logout" element={<Logout />} />
                             <Route path="/server">
