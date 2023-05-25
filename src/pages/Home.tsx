@@ -7,6 +7,8 @@ import { Bot } from "../vite-env";
 
 import "../assets/less/bot.less";
 
+import CommandList from "../components/CommandList";
+
 const Home = ({ bot }: { bot: Bot }) => {
     return (
         <Container maxWidth="xl">
@@ -44,6 +46,7 @@ const Home = ({ bot }: { bot: Bot }) => {
                     </Grid>
                 </Grid>
             </Container>
+            <CommandList />
         </Container>
     );
 };

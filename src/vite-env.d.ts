@@ -79,3 +79,10 @@ export type Guild = {
     widgetChannelId: string | null;
     widgetEnabled: boolean;
 };
+
+export type Command = {
+    name: string;
+    description: string;
+    category: string;
+    detailedDescription: string;
+}
