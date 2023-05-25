@@ -52,6 +52,7 @@ const CommandList = () => {
                         <Typography
                             variant="h6"
                             align="center"
+                            sx={{ color: "#999" }}
                         >
                             {capitalize(category)}
                         </Typography>
