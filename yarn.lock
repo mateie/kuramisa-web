@@ -1314,10 +1314,10 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.41.0.tgz#080321c3b68253522f7646b55b577dd99d2950b3"
   integrity sha512-LxcyMGxwmTh2lY9FwHPGWOHmYFCZvbrFCBZL4FzSSsxsRPuhrYUg/49/0KDfW8tnIEaEHtfmn6+NPN+1DqaNmA==
 
-"@fontsource/varta@^5.0.1":
+"@fontsource/poppins@^5.0.1":
   version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@fontsource/varta/-/varta-5.0.1.tgz#3e17aa2ea8bbf0cc94513ecfa86ca621129cbc0e"
-  integrity sha512-6rpNZWMTuVLIqENJe4X96P1gpCdgcT4DbyzRsPXYSd/uowidEe9T268As5N5+s0jPOQ6QKu1xs9a0xfeSwb+7w==
+  resolved "https://registry.yarnpkg.com/@fontsource/poppins/-/poppins-5.0.1.tgz#b284e8f66cdb4208d214fe2ccc93cdb1318f8905"
+  integrity sha512-meHDJ+t2NrfiKdcQefv+CYGcup8ZHXoSzOwRV3RolmGXG4569y9zL/lV8qMe3q8WdqSn8CAyRoJKxZXEkPBcAg==
 
 "@graphql-typed-document-node/core@^3.1.1":
   version "3.1.2"
@@ -3908,6 +3908,11 @@ react-draggable@^4.4.5:
   dependencies:
     clsx "^1.1.1"
     prop-types "^15.8.1"
+
+react-icons@^4.8.0:
+  version "4.8.0"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.8.0.tgz#621e900caa23b912f737e41be57f27f6b2bff445"
+  integrity sha512-N6+kOLcihDiAnj5Czu637waJqSnwlMNROzVZMhfX68V/9bu9qHaMIJC4UdozWoOk57gahFCNHwVvWzm0MTzRjg==
 
 react-infinite-scroller@^1.2.6:
   version "1.2.6"

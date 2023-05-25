@@ -17,7 +17,7 @@ import Logout from "./pages/Logout";
 import { AuthContext } from "./providers/AuthProvider";
 import Sidebar from "./components/Sidebar";
 import Home from "./pages/Home";
-import Grid from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
 import Guild from "./pages/Guild";
 
 const { VITE_UNDER_DEV } = import.meta.env;
@@ -35,18 +35,17 @@ const App = () => {
 
     if (loading) return <BotLoading />;
     if (botError) return <BotOffline />;
-
+    
     return (
-        <Grid container flexDirection="column">
-            <Grid item>
+        <>
+            <Container disableGutters={true} maxWidth={false}>
                 <Navigation bot={bot} auth={auth} />
-            </Grid>
-            <Grid container justifyItems="center">
-                <Grid item>
+                <Stack
+                    direction="row"
+                    spacing={4}
+                >
                     <Sidebar auth={auth} />
-                </Grid>
-                <Grid item className="p-20">
-                    <Container>
+                    <Container maxWidth="xl" sx={{ padding: "40px" }}>
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="/login" element={<Login />} />
@@ -56,9 +55,9 @@ const App = () => {
                             </Route>
                         </Routes>
                     </Container>
-                </Grid>
-            </Grid>
-        </Grid>
+                </Stack>
+            </Container>
+        </>
     );
 };
 
