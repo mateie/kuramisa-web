@@ -12,6 +12,7 @@ import Typography from "@mui/material/Typography";
 import { MutableRefObject } from "react";
 
 import truncate from "lodash/truncate";
+import { Guild } from "../../vite-env";
 
 const BotGuildScroll = ({ parent }: { parent: MutableRefObject<any> }) => {
     const navigate = useNavigate();
@@ -51,10 +52,10 @@ const BotGuildScroll = ({ parent }: { parent: MutableRefObject<any> }) => {
         getScrollParent={() => parent.current}
     >
         <Grid container spacing={2}>
-            {guilds.data.map((guild: any, id: any) => (
+            {guilds.data.map((guild: Guild, id: any) => (
                 <Grid
                     item
-                    onClick={() => navigate(`/guild/${guild.id}`)}
+                    onClick={() => navigate(`/server/${guild.id}`)}
                     className="flex justify-center items-center p-2 guild"
                     key={id}
                 >

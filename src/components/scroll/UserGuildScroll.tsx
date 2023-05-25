@@ -1,4 +1,3 @@
-import React from "react";
 import { useQuery } from "@apollo/client";
 import { FetchUserGuilds } from "../../gql/queries/users";
 import InfiniteScroll from "react-infinite-scroller";
@@ -10,6 +9,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 
 import truncate from "lodash/truncate";
+import { Guild } from "../../vite-env";
 
 const UserGuildScroll = ({ parent }: { parent: React.MutableRefObject<any> }) => {
     const navigate = useNavigate();
@@ -50,15 +50,15 @@ const UserGuildScroll = ({ parent }: { parent: React.MutableRefObject<any> }) =>
     return <InfiniteScroll
         pageStart={0}
         loadMore={loadMore}
-        hasMore={guilds.data.length < guilds.count}
+        hasMore={guilds ? guilds.data.length < guilds.count : false}
         useWindow={false}
         getScrollParent={() => parent.current}
     >
         <Grid container spacing={2}>
-            {guilds.data.map((guild: any, id: any) => (
+            {guilds ? guilds.data.map((guild: Guild, id: any) => (
                 <Grid
                     item
-                    onClick={() => navigate(`/guild/${guild.id}`)}
+                    onClick={() => navigate(`/server/${guild.id}`)}
                     className="flex justify-center items-center p-2 guild"
                     key={id}
                 >
@@ -80,7 +80,16 @@ const UserGuildScroll = ({ parent }: { parent: React.MutableRefObject<any> }) =>
                         <p className="guild-memebers">{guild.memberCount ? guild.memberCount : "Unknown #"} Members</p>
                     </div>
                 </Grid>
-            ))}
+            )) : (
+                <Grid
+                    item
+                    className="flex justify-center items-center p-2"
+                >
+                    <Typography variant="body1">
+                        You do not own or have ability to manage any servers<br />:&lt;
+                    </Typography>
+                </Grid>
+            )}
         </Grid>
     </InfiniteScroll>;
 };
