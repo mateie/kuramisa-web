@@ -15,7 +15,6 @@ import Login from "./pages/Login";
 import Logout from "./pages/Logout";
 
 import { AuthContext } from "./providers/AuthProvider";
-import Sidebar from "./components/Sidebar";
 import Home from "./pages/Home";
 import Stack from "@mui/material/Stack";
 import Guild from "./pages/Guild";
@@ -44,7 +43,6 @@ const App = () => {
                     direction="row"
                     spacing={4}
                 >
-                    <Sidebar auth={auth} />
                     <Container maxWidth="xl" sx={{ padding: "40px" }}>
                         <Routes>
                             <Route path="/" element={<Home bot={bot} />} />
