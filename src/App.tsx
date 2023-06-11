@@ -39,13 +39,13 @@ const App = () => {
 
     return (
         <>
-            <Sidebar auth={auth} />
             <Container disableGutters={true} maxWidth={false}>
                 <Navigation bot={bot} auth={auth} />
                 <Stack
                     direction="row"
                     spacing={4}
                 >
+                    <Sidebar auth={auth} />
                     <Container maxWidth="xl" sx={{ padding: "40px" }}>
                         <Routes>
                             <Route path="/" element={<Home bot={bot} />} />
