@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { useQuery } from "@apollo/client";
 import { Route, Routes } from "react-router-dom";
 
+import Stack from "@mui/material/Stack";
+
 import { FetchClientUser } from "./gql/queries/client";
 
 import BotLoading from "./components/status/Loading";
@@ -16,8 +18,8 @@ import Logout from "./pages/Logout";
 
 import { AuthContext } from "./providers/AuthProvider";
 import Home from "./pages/Home";
-import Stack from "@mui/material/Stack";
 import Guild from "./pages/Guild";
+import Sidebar from "./components/Sidebar";
 
 const { VITE_UNDER_DEV } = import.meta.env;
 
@@ -37,6 +39,7 @@ const App = () => {
 
     return (
         <>
+            <Sidebar auth={auth} />
             <Container disableGutters={true} maxWidth={false}>
                 <Navigation bot={bot} auth={auth} />
                 <Stack
