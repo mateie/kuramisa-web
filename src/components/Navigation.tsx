@@ -29,7 +29,7 @@ const Navigation = ({ bot, auth }: { bot: Bot; auth: any }) => {
             }}
         >
             <Box display="flex" alignItems="center">
-                <img src={bot.avatarURL} alt="" width={48} />
+                <img style={{ borderRadius: "50%" }} src={bot.avatarURL} alt="" width={48} />
                 <Typography
                     variant="subtitle1"
                     sx={{
