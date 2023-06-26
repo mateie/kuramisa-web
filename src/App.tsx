@@ -20,6 +20,7 @@ import { AuthContext } from "./providers/AuthProvider";
 import Home from "./pages/Home";
 import Guild from "./pages/Guild";
 import Sidebar from "./components/Sidebar";
+import InviteButton from "./components/InviteButton";
 
 const { VITE_UNDER_DEV } = import.meta.env;
 
@@ -58,6 +59,7 @@ const App = () => {
                     </Container>
                 </Stack>
             </Container>
+            <InviteButton />
         </>
     );
 };
