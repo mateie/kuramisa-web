@@ -18,12 +18,6 @@ export const FetchUserGuilds = gql`
     }
 `;
 
-export const FetchUserCard = gql`
-    query ($userId: String!) {
-        userCard(userId: $userId)
-    }
-`;
-
 export const FetchWarns = gql`
     query ($guildId: String!, $userId: String!, $page: Int, $perPage: Int) {
         warns(guildId: $guildId, userId: $userId, page: $page, perPage: $perPage)
